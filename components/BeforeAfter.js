@@ -78,8 +78,8 @@ export default function BeforeAfter({track}) {
             <p className="text-xl font-bold text-yellow-400 mb-4">
                 {
                     isMastered
-                        ? "Masterizat"
-                        : "Nemasterizat"
+                        ? "Masterizat "
+                        : "Nemasterizat "
                 }
                 - {track.title}
             </p>
