@@ -1,0 +1,828 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-light: #ffffff;
+  --foreground-light: #171717;
+  --background-dark: #0a0a0a;
+  --foreground-dark: #ededed;
+}
+
+body {
+  @apply transition-colors duration-300; /* Smooth theme switching */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Use Tailwind’s built-in dark mode */
+body {
+  background: var(--background-light);
+  color: var(--foreground-dark);
+}
+
+.dark body {
+  background: var(--background-dark);
+  color: var(--foreground-dark);
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(45deg, #ed1e79, #ffd933);
+  background-size: 200% 200%;
+  animation: gradientMove 2s infinite ease-in-out;
+  opacity: 1;
+  z-index: -1;
+  will-change: background-position;
+}
+
+/* Noise Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* background-image: url('../public/BG2.webp');*/
+  /* background-size: 300px 300px; */
+  opacity: 1; /* Subtle noise effect */
+  z-index: -1;
+  pointer-events: none; /* Prevents interaction */
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* background-image: url('../public/BG5.png'); */
+    /* background-size: 300px 300px; */
+    opacity: 1; /* Subtle noise effect */
+    z-index: -1;
+    pointer-events: none; /* Prevents interaction */
+  }
+}
+
+.splash {
+  position: absolute;
+  width: 120%;
+  height: auto;
+  top: -20px; /* Ensures it's not cropped */
+  left: 50%;
+  transform: translateX(-50%);
+  filter: hue-rotate(300deg) saturate(200%) brightness(1.2);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+
+.bg-magenta, .bg-magenta-active {
+  background: linear-gradient(135deg, #ed1e79, #ffee00);
+  color: #000;
+  font-weight: bold;
+  font-size: 16px; /* ✅ Set explicit font size */
+  padding: 10px 16px;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(255, 0, 128, 0.3);
+  display: inline-block;
+  text-align: center;
+}
+
+/* Hover effect */
+.bg-magenta:hover, .bg-magenta-active:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(255, 0, 128, 0.6);
+  filter: brightness(1.1);
+}
+
+/* Active page effect (without changing font size) */
+.bg-magenta-active {
+  background: linear-gradient(135deg, #ffee00, #ed1e79);
+  box-shadow: 0 4px 12px rgba(255, 255, 0, 0.5);
+  font-size: 16px; /* ✅ Ensure this stays consistent */
+}
+   
+
+
+
+/* ✅ General Header Styling */
+header {
+  backdrop-filter: blur(10px);
+}
+
+/* ✅ Subtle Neon Glow for Links (Less Intense) */
+nav a {
+  position: relative;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: #FFD700; /* Neon Yellow */
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); /* Softer Glow */
+}
+
+/* ✅ Improved Glitch Effect (More Distortion) */
+.glitch-active {
+  position: relative;
+  color: #FFD700;
+  animation: glitch-flicker 1.2s infinite alternate;
+}
+
+@keyframes glitch-flicker {
+  0% { opacity: 1; text-shadow: 1px 0px 3px #FFD700, -1px 0px 3px #ff0077; }
+  20% { text-shadow: 2px -2px 5px #FFD700, -2px 2px 5px #ff0077; }
+  40% { text-shadow: -2px 2px 4px #FFD700, 2px -2px 4px #ff0077; }
+  60% { text-shadow: 3px 0px 6px #FFD700, -3px 0px 6px #ff0077; }
+  80% { text-shadow: -1px -1px 3px #FFD700, 1px 1px 3px #ff0077; }
+  100% { opacity: 1; text-shadow: 1px 0px 3px #FFD700, -1px 0px 3px #ff0077; }
+}
+
+
+/* ✅ Mobile Full-Screen Menu - FIXED */
+.mobile-menu {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(15px);
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh; /* Ensures full coverage */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: env(safe-area-inset-top); /* Fix for iPhone notch */
+}
+
+.mobile-menu a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 12px 0;
+  transition: 0.3s ease-in-out;
+}
+
+.mobile-menu a:hover {
+  color: #FFD700;
+  text-shadow: 0 0 4px #FFD700, 0 0 10px #ff0077;
+}
+
+
+
+/* ✅ Burger Menu Animation Fix */
+.burger-icon {
+  transition: transform 0.3s ease-in-out;
+}
+
+.burger-icon.open {
+  transform: rotate(90deg);
+}
+
+/* ✅ Cleaner Glitch Text Effect */
+@keyframes text-glitch {
+  0%, 100% { opacity: 1; transform: skewX(0deg); }
+  50% { opacity: 0.95; transform: skewX(-2deg); }
+}
+
+.glitch-text {
+  color: #FFD700;
+  animation: text-glitch 3s infinite alternate ease-in-out;
+  text-shadow: 2px 2px 5px rgba(255, 0, 255, 0.3), -2px -2px 5px rgba(0, 255, 255, 0.3);
+}
+
+/* ✅ New CTA Button Style - Matches Navbar */
+.cta-primary {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #FFD700; /* Same Yellow as Navbar */
+  border: 3px solid #FFD700;
+  padding: 14px 30px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+/* ✅ Glowing Underline on Hover */
+.cta-primary::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 0;
+  height: 3px;
+  background: #FFD700;
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+/* ✅ Pulse & Glow Effect */
+.cta-primary:hover {
+  color: black;
+  background: #FFD700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  transform: scale(1.05);
+}
+
+.cta-primary:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+
+/* ✅ Section Glitch Title */
+@keyframes text-glitch {
+  0%, 100% { opacity: 1; transform: skewX(0deg); }
+  50% { opacity: 0.95; transform: skewX(-2deg); }
+}
+
+.glitch-text {
+  animation: text-glitch 3s infinite alternate ease-in-out;
+  text-shadow: 2px 2px 5px rgba(255, 0, 255, 0.3), -2px -2px 5px rgba(0, 255, 255, 0.3);
+}
+
+/* ✅ Artist Cards Hover Effect */
+.artist-card:hover {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+}
+
+/* ✅ Artist Image Fade */
+.artist-card img {
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.artist-card:hover img {
+  opacity: 1;
+}
+
+/* ✅ Hide Scrollbar for Horizontal Scroll */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ✅ Artist Modal Enhancements */
+.artist-modal a {
+  transition: color 0.3s ease-in-out;
+}
+
+.artist-modal a:hover {
+  text-decoration: underline;
+}
+
+
+/* ✅ Glitch Effect for Section Title */
+@keyframes text-glitch {
+  0%, 100% { opacity: 1; transform: skewX(0deg); }
+  50% { opacity: 0.95; transform: skewX(-2deg); }
+}
+
+.glitch-text {
+  animation: text-glitch 3s infinite alternate ease-in-out;
+  text-shadow: 2px 2px 5px rgba(255, 0, 255, 0.3), -2px -2px 5px rgba(0, 255, 255, 0.3);
+}
+
+/* ✅ Hover Effect for Cards */
+.hover:scale-105 {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* ✅ Text and Icons Change to Magenta on Hover */
+.group:hover .text-yellow-400 {
+  color: #ff0077 !important; /* Turns magenta */
+}
+
+/* ✅ Text and Icons Change to Magenta on Hover */
+.group:hover .text-gray-300 {
+  color: #ff0077 !important; /* Turns magenta */
+}
+
+/* ✅ Ensure text and icon transitions are smooth */
+.transition-colors {
+  transition: color 0.3s ease-in-out;
+}
+
+/* ✅ Card background turns Yellow on hover */
+.hover\:bg-yellow-400:hover {
+  background-color: #FFD700 !important;
+}
+
+/* ✅ Updated Title Font */
+.why-title {
+  font-family: var(--font-oswald), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ✅ Updated Description Font */
+.why-description {
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ✅ Section Title Glitch Effect */
+.glitch-text {
+  font-family: var(--font-oswald), sans-serif;
+  font-weight: 800;
+  animation: text-glitch 3s infinite alternate ease-in-out;
+  text-shadow: 2px 2px 5px rgba(255, 0, 255, 0.3), -2px -2px 5px rgba(0, 255, 255, 0.3);
+}
+
+
+/* ✅ Adjust line height on mobile */
+@media (max-width: 640px) {
+  .glitch-text {
+    line-height: 1.3 !important; /* Adds proper spacing between lines */
+  }
+}
+
+/* ✅ Ensure Titles Use Oswald */
+.why-title {
+  font-family: var(--font-oswald), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ✅ Ensure Descriptions Use Montserrat */
+.why-description {
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ✅ Add hover effect to testimonial dots */
+button.w-4.h-4 {
+  transition: background 0.3s ease-in-out;
+}
+
+button.w-4.h-4:hover {
+  background: #ff0077; /* Magenta hover effect */
+}
+
+/* ✅ Ensure smooth image transition */
+img.rounded-full {
+  transition: transform 0.3s ease-in-out;
+}
+
+img.rounded-full:hover {
+  transform: scale(1.1);
+}
+
+/* ✅ Headings (Use Oswald for strong impact) */
+h1, h2, h3, .section-title, .why-title, .glitch-text {
+  font-family: var(--font-oswald), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ✅ Body Text (Use Montserrat for readability) */
+p, span, .why-description, .testimonial-text {
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ✅ Buttons & CTA (Keep them bold and legible) */
+button, .cta-button {
+  font-family: var(--font-oswald), sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+
+/* ✅ Glitch Hover Effect for Links */
+.glitch-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-hover::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  text-shadow: -2px 0 magenta;
+  clip: rect(0, 0, 0, 0);
+  animation: glitch-text 1.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-text {
+  0% { clip: rect(20px, 9999px, 85px, 0); transform: skew(0.5deg); }
+  100% { clip: rect(85px, 9999px, 140px, 0); transform: skew(-0.5deg); }
+}
+
+/* ✅ Make Social Icons Interactive */
+.text-yellow-400 .foot:hover {
+  color: #ff0077 !important;
+}
+
+/* ✅ Neon Glow on Logo Hover */
+.filter:hover {
+  filter: drop-shadow(0px 0px 15px #ff0077);
+}
+
+/* ✅ Toggle Button Styling */
+button:hover {
+  transition: all 0.3s ease-in-out;
+}
+
+/* ✅ Waveform Bar Style */
+.wavesurfer-container {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* ================================= */
+/* 🔥 Glitch Effect for Key Sections */
+/* ================================= */
+.glitch-box {
+  position: relative;
+  overflow: hidden;
+  animation: glitch 1.5s infinite alternate;
+}
+
+@keyframes glitch {
+  0% {
+    transform: skewX(0deg);
+  }
+  20% {
+    transform: skewX(-5deg);
+  }
+  40% {
+    transform: skewX(5deg);
+  }
+  60% {
+    transform: skewX(-3deg);
+  }
+  80% {
+    transform: skewX(3deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
+
+/* ================================= */
+/* 🎭 Scroll Animation for Sections */
+/* ================================= */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================================= */
+/* 🚀 Future Plans Section Animation */
+/* ================================= */
+.future-node {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.future-node:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #ff0077, 0 0 20px #ff0077;
+}
+
+.future-node::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid #ff0077;
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.future-node:hover::before {
+  opacity: 1;
+}
+
+/* ================================= */
+/* 🌟 Text & Icon Glow on Hover */
+/* ================================= */
+.text-hover-glow:hover {
+  color: #ff0077;
+  text-shadow: 0 0 5px #ff0077, 0 0 10px #ff0077;
+}
+
+.icon-hover-glow:hover {
+  color: #ffd700;
+  filter: drop-shadow(0 0 5px #ffd700);
+}
+
+/* ================================= */
+/* 🔥 NAVBAR-STYLE GLITCH EFFECT */
+/* ================================= */
+.glitch-text {
+  position: relative;
+  font-size: 3rem; /* ✅ Adjusted for responsiveness */
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffd700; /* ✅ Default Yellow */
+  text-align: center;
+  white-space: nowrap;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+/* 🔹 Magenta Glitch Layer */
+.glitch-text::before {
+  color: #ff0077;
+  text-shadow: -1px 0 #ff0077, -2px 0 #ff0077;
+  animation: glitch-magenta 1s infinite alternate;
+}
+
+/* 🔹 Yellow Glitch Layer */
+.glitch-text::after {
+  color: #ffd700;
+  text-shadow: 1px 0 #ffd700, 2px 0 #ffd700;
+  animation: glitch-yellow 1s infinite alternate-reverse;
+}
+
+/* 🔥 Controlled Glitch Animations */
+@keyframes glitch-magenta {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-1px, -1px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(1px, 1px); }
+  80% { transform: translate(2px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes glitch-yellow {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(1px, 1px); }
+  40% { transform: translate(2px, 2px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(-2px, -2px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* 🔹 Responsive Scaling */
+@media (max-width: 768px) {
+  .glitch-text {
+    font-size: 2rem; /* ✅ Smaller on mobile */
+  }
+}
+/* ================================= */
+/* 🔥 ON-BRAND FORM INPUTS (Final Fix) */
+/* ================================= */
+.contact-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #121212 !important; /* ✅ Dark background */
+  border: 2px solid #121212;
+  border-radius: 8px;
+  color: #ffd700;
+  outline: none;
+  appearance: none; /* ✅ Prevents default autofill styling */
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ✅ Autofill Fix for Chrome, Safari, Edge */
+.contact-input:-webkit-autofill,
+.contact-input:-webkit-autofill:hover, 
+.contact-input:-webkit-autofill:focus, 
+.contact-input:-webkit-autofill:active {
+  -webkit-text-fill-color: #ffd700 !important;
+  background-color: #121212 !important;
+  background-clip: content-box !important;
+  box-shadow: 0 0 0px 1000px #121212 inset !important;
+  transition: background-color 5000s ease-in-out 0s; /* ✅ Ensures background sticks */
+}
+
+/* ✅ Autofill Fix for Firefox */
+input:-moz-autofill,
+textarea:-moz-autofill {
+  background-color: #121212 !important;
+  color: #ffd700 !important;
+}
+
+/* ✅ Consistent hover & focus effect */
+.contact-input:focus, 
+.contact-input:hover {
+  border-color: #ffd700;
+  box-shadow: 0px 0px 12px rgba(255, 215, 0, 0.6);
+}
+
+/* ✅ Custom Placeholder Styling */
+.contact-input::placeholder {
+  color: rgba(255, 215, 0, 0.6);
+  font-weight: 600;
+}
+
+
+/* ✅ Service Selection Buttons */
+.service-option {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #121212;
+  color: #ffd700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.service-option:hover, .service-option.selected {
+  background: #ff0077;
+  border: 2px solid #ff0077;
+  color: black;
+  box-shadow: 0px 0px 12px rgba(255, 0, 119, 0.8);
+}
+
+/* ✅ Fix for unwanted spacing */
+header a.relative {
+  min-height: auto !important;
+}
+
+html {
+  font-family: var(--font-inter), sans-serif;
+}
+
+body {
+  font-family: var(--font-inter), sans-serif;
+  @apply text-white bg-black; /* Ensures consistent dark theme */
+}
+
+h1, h2, h3 {
+  font-weight: 800; /* Bold for headlines */
+}
+
+p, label {
+  font-weight: 400; /* Regular for descriptions */
+}
+
+.contact-input {
+  font-weight: 500; /* Medium weight for input text */
+}
+
+button {
+  font-weight: 700; /* Strong emphasis for CTAs */
+}
+
+
+.search-input {
+
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #121212 !important; /* ✅ Dark background */
+  border: 2px solid #121212;
+  border-radius: 8px;
+  color: #ffd700;
+  outline: none;
+  appearance: none; /* ✅ Prevents default autofill styling */
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ✅ Autofill Fix for Chrome, Safari, Edge */
+.search-input:-webkit-autofill,
+.search-input:-webkit-autofill:hover, 
+.search-input:-webkit-autofill:focus, 
+.search-input:-webkit-autofill:active {
+  -webkit-text-fill-color: #ffd700 !important;
+  background-color: #121212 !important;
+  background-clip: content-box !important;
+  box-shadow: 0 0 0px 1000px #121212 inset !important;
+  transition: background-color 5000s ease-in-out 0s; /* ✅ Ensures background sticks */
+}
+
+/* ✅ Consistent hover & focus effect */
+.search-input:focus, 
+.search-input:hover {
+  border-color: #ffd700;
+  box-shadow: 0px 0px 12px rgba(255, 215, 0, 0.6);
+}
+
+/* ✅ Custom Placeholder Styling */
+.search-input::placeholder {
+  color: #ffd700;
+  font-weight: 600;
+}
+
+.text-yellow-400 {
+  color: #ffd700;
+} 
+
+.glitch-text {
+  position: relative;
+  font-size: clamp(1.8rem, 5vw, 3rem); /* Dynamic Scaling */
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffd700;
+  text-align: center;
+  white-space: normal; /* ✅ Allows proper text wrapping */
+  word-break: break-word; /* ✅ Ensures text breaks gracefully if needed */
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+/* 🔹 Magenta Glitch Layer */
+.glitch-text::before {
+  color: #ff0077;
+  text-shadow: -1px 0 #ff0077, -2px 0 #ff0077;
+  animation: glitch-magenta 0.8s infinite alternate; /* ✅ Faster animation */
+}
+
+/* 🔹 Yellow Glitch Layer */
+.glitch-text::after {
+  color: #ffd700;
+  text-shadow: 1px 0 #ffd700, 2px 0 #ffd700;
+  animation: glitch-yellow 0.8s infinite alternate-reverse;
+}
+
+/* 🔥 Controlled Glitch Animations */
+@keyframes glitch-magenta {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-1px, -1px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(1px, 1px); }
+  80% { transform: translate(2px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes glitch-yellow {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(1px, 1px); }
+  40% { transform: translate(2px, 2px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(-2px, -2px); }
+  100% { transform: translate(0, 0); }
+}
+
+.text-magenta {
+  color: #ff0077;
+  text-shadow: 0 0 0px #ff0077, 0 0 10px #ff0077;
+}
+
+header {
+  /* transition: background-color 0.3s ease-in-out; */
+}
+/* Adds space for the fixed header */
+.content-padding {
+  padding-top: 70px; /* Same height as the header */
+}
+
+
+

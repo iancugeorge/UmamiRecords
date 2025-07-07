@@ -1,0 +1,26 @@
+@keyframes noise {
+    0% { background-position: 0 0; }
+    10% { background-position: -10% -10%; }
+    20% { background-position: 10% -10%; }
+    30% { background-position: -10% 10%; }
+    40% { background-position: 10% 10%; }
+    50% { background-position: 0 0; }
+    60% { background-position: -5% -5%; }
+    70% { background-position: 5% -5%; }
+    80% { background-position: -5% 5%; }
+    90% { background-position: 5% 5%; }
+    100% { background-position: 0 0; }
+  }
+  
+  .noise-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('/noise.png'); /* We'll add this noise texture */
+    opacity: 0.06;
+    animation: noise 1s infinite linear;
+    pointer-events: none; /* So it doesn't interfere with clicks */
+  }
+  
