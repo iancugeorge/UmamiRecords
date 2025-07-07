@@ -4,11 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaInstagram, FaSpotify, FaYoutube, FaTimes } from "react-icons/fa";
 
-/**
- * 1) Portal component.
- *    - Dynamically renders children into <div id="modal-root"> in _document.js
- *    - This ensures "position: fixed" truly attaches to the global viewport.
- */
+
 function ModalPortal({ children }) {
   const [mounted, setMounted] = useState(false);
 
@@ -27,24 +23,18 @@ function ModalPortal({ children }) {
 // Example artist data
 const artists = [
   { 
-    name: "Haiduc", 
-    image: "/albert.jpg", 
-    genre: "Trap / Hip-Hop", 
-    instagram: "https://instagram.com/wshaiduc",
-    spotify: "https://open.spotify.com/haiduc",
-  },
-  { 
-    name: "Paula Both", 
-    image: "/paula.jpg", 
-    genre: "Electronic", 
-    instagram: "https://instagram.com/paulaboth",
-    youtube: "https://youtube.com/paulaboth",
+    name: "Simake", 
+    image: "/simake.jpg", 
+    genre: "Hip-Hop / Gangsta Rap", 
+    instagram: "https://www.instagram.com/simak3_/",
+    youtube: "https://www.youtube.com/@plmrecordsoficial",
   },
   { 
     name: "EDO", 
     image: "/edo.jpg", 
-    genre: "Alternative", 
+    genre: "Hip-Hop Alternativ", 
     instagram: "https://instagram.com/edoardolazar",
+    youtube: "https://www.youtube.com/@edoardolazar",
   },
 ];
 
@@ -76,23 +66,25 @@ export default function FeaturedArtists() {
       </motion.h2>
 
       {/* Artists Grid Layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+      <div className="flex flex-wrap justify-center gap-8">
+
         {artists.map((artist, index) => (
           <motion.div
-            key={index}
-            className="relative bg-black rounded-lg shadow-lg overflow-hidden border-2 border-yellow-400 cursor-pointer"
-            whileHover={{ scale: 1.05 }}
-            onClick={() => setSelectedArtist(artist)}
-          >
-            <div className="relative w-full h-[300px]">
-              <Image
-                src={artist.image}
-                alt={artist.name}
-                layout="fill"
-                objectFit="cover"
-                className="transition-opacity duration-300"
-              />
-            </div>
+  key={index}
+  className="relative bg-black rounded-lg shadow-lg overflow-hidden border-2 border-yellow-400 cursor-pointer w-full max-w-xs mx-auto"
+  whileHover={{ scale: 1.05 }}
+  onClick={() => setSelectedArtist(artist)}
+>
+
+           <div className="relative w-full aspect-square">
+  <Image
+    src={artist.image}
+    alt={artist.name}
+    fill
+    className="object-cover rounded-t-lg"
+  />
+</div>
+
             <div className="absolute bottom-0 left-0 w-full p-4 bg-black bg-opacity-70 text-white">
               <h3 className="text-lg font-bold">{artist.name}</h3>
               <p className="text-sm text-yellow-400">{artist.genre}</p>

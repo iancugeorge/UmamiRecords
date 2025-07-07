@@ -44,17 +44,19 @@ export default function About() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <Image
-          src="/images/studio.jpg" 
-          alt="Umami Records Studio"
-          width={800}
-          height={500}
-          className="rounded-md"
-          loading="lazy"
-        />
-        <div className="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white px-4 py-1 rounded-md text-sm">
+        <div className="relative w-full max-w-4xl aspect-video mx-auto rounded-md overflow-hidden border-2 border-yellow-400">
+  <Image
+    src="/studio.png"
+    alt="Umami Records Studio"
+    fill
+    className="object-cover"
+    loading="lazy"
+  />
+</div>
+
+        {/* <div className="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white px-4 py-1 rounded-md text-sm">
           Asta e zona unde magia prinde viață.
-        </div>
+        </div> */}
       </motion.div>
 
       {/* De unde a pornit Umami? */}

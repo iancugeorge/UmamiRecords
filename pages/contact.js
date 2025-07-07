@@ -117,7 +117,7 @@ export default function Contact() {
 
       {/* 🔥 PRIMARY WHATSAPP CTA */}
       <motion.a 
-        href="https://wa.me/+40720382803" 
+        href="https://wa.me/+40728449540" 
         className="flex items-center gap-3 px-6 py-4 bg-yellow-400 text-black font-bold rounded-full text-lg shadow-md hover:bg-yellow-500 transition-all mb-10"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
