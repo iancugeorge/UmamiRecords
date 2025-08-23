@@ -9,10 +9,10 @@ const sampleData = {
   "Mix & Master": [
     { id: 7, title: "Edo - Jurat", rawSrc: "/audio/Site - Edo - Jurat - REC.mp3", masteredSrc: "/audio/Site - Edo - Jurat - MASTER.mp3" },
     { id: 6, title: "Simake - Poate intr-o zi", rawSrc: "/audio/Site - Simake - Poate intr-o zi - REC.mp3", masteredSrc: "/audio/Site - Simake - Poate intr-o zi - MASTER.mp3" },
-    { id: 5, title: "Edo - Persoana", rawSrc: "/audio/Site - Edo - Persoana - REC.mp3", masteredSrc: "/audio/Site - Edo - Persoana - MASTER.mp3" }, // (fixed leading slash)
+    { id: 5, title: "Edo - Persoana", rawSrc: "/audio/Site - Edo - Persoana - REC.mp3", masteredSrc: "/audio/Site - Edo - Persoana - MASTER.mp3" }, 
     { id: 4, title: "Simake x Jama1ka - Asa ca (Jama1ka)", rawSrc: "/audio/Site - Jamaika - Asa ca - REC.mp3", masteredSrc: "/audio/Site - Jamaika - Asa ca - MASTER.mp3" },
     { id: 3, title: "Simake x Jama1ka - Asa ca (Simake)", rawSrc: "/audio/Site - Simake - Asa ca - REC.mp3", masteredSrc: "/audio/Site - Simake - Asa ca - MASTER.mp3" },
-    { id: 2, title: "Yashin - Prostituta", rawSrc: "/audio/Site - Yashin - Prostituta - REC.mp3", masteredSrc: "/audio/Site - Yashin - Prostituta - MASTER.mp3" },
+    { id: 2, title: "Yashin - Prostituta", rawSrc: "/audio/Site - Yashin - Prostituta - REC.mp3", masteredSrc: "/audio/Site - Yashin - Prostituta- MASTER.mp3" },
     { id: 1, title: "Simake - Banii", rawSrc: "/audio/Site - Simake - Banii - REC.mp3", masteredSrc: "/audio/Site - Simake - Banii - MASTER.mp3" },
   ],
   Beaturi: [
@@ -20,7 +20,8 @@ const sampleData = {
     // { id: 1, title: "Beat 1", src: "/beats/beat1.mp3" }
   ],
   Muzica: [
-    { id: 8, title: "Edo - Decibelii", src: "https://www.youtube.com/watch?v=nsL1fdZHvQ0", thumbnail: "https://img.youtube.com/vi/nsL1fdZHvQ0/maxresdefault.jpg" },
+    { id: 9, title: "Edo - Decibelii", src: "https://www.youtube.com/watch?v=nsL1fdZHvQ0", thumbnail: "https://img.youtube.com/vi/nsL1fdZHvQ0/maxresdefault.jpg" },
+    { id: 8, title: "Haiduc x Iox - The Path", src: "https://www.youtube.com/watch?v=wlbOVzmOKAs", thumbnail: "https://img.youtube.com/vi/wlbOVzmOKAs/maxresdefault.jpg" },
     { id: 7, title: "Edo - Jurat", src: "https://www.youtube.com/watch?v=53fZNKM72o0", thumbnail: "https://img.youtube.com/vi/53fZNKM72o0/maxresdefault.jpg" },
     { id: 6, title: "Simake - Poate intr-o zi", src: "https://www.youtube.com/watch?v=wnyFeMHOREM", thumbnail: "https://img.youtube.com/vi/wnyFeMHOREM/maxresdefault.jpg" },
     { id: 5, title: "Edo - Persoana", src: "https://www.youtube.com/watch?v=_J9oAt9pQJA", thumbnail: "https://img.youtube.com/vi/_J9oAt9pQJA/maxresdefault.jpg" },
