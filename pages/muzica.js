@@ -1,10 +1,12 @@
-import SampleGallery from '@/components/SampleGallery';
+import dynamic from 'next/dynamic';
 import {motion} from "framer-motion";
 import Head from "next/head";
 
+const SampleGallery = dynamic(() => import('@/components/SampleGallery'));
+
 export default function Music() {
     return (
-        <> < Head > <title>Muzica Umami Records | Beat-uri, Mixuri și Videoclipuri pentru Artiști Adevărați</title>
+        <> <Head> <title>Muzica Umami Records | Beat-uri, Mixuri și Videoclipuri pentru Artiști Adevărați</title>
         <meta
             name="description"
             content="Descoperă vibe-ul Umami Records: beat-uri originale, mixuri clare și videoclipuri creative. Sound-ul tău merită să fie auzit!"/>

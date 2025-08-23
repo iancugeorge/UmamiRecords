@@ -8,7 +8,7 @@ const services = [
     title: "Înregistrare", 
     subtitle: "Vocea ta, capturată perfect.",
     description: "Folosim echipament de studio de calitate pentru a surprinde fiecare nuanță a vocii tale. Îți oferim ghidare pe tot parcursul sesiunii, astfel încât să obții cea mai bună interpretare posibilă. Înregistrarea include și ajustări minime pentru a suna bine încă din start.",
-    price: "75 RON / oră",
+    price: "50 RON / oră",
     icon: Mic, 
     cta: "Rezervă sesiunea", 
     link: "/contact"  // ✅ Contact remains as is
@@ -35,7 +35,7 @@ const services = [
     title: "Producție Video", 
     subtitle: "Transformă muzica ta într-o poveste vizuală.",
     description: "Clipurile tale trebuie să arate la fel de bine pe cât sună piesele. Facem visualizere, promo clips sau chiar videoclipuri mai complexe.",
-    price: "50-150 RON / visualizer\nVideoclip: preț discutat per proiect",
+    price: "50+ RON / visualizer \n Videoclip: preț discutat per proiect",
     icon: Video, 
     cta: "Vezi exemple", 
     link: "/muzica?tab=Muzica"  // ✅ Directs to "Videoclipuri"
@@ -52,6 +52,18 @@ export default function Services() {
       <meta property="og:title" content="Servicii Umami Records | Înregistrări, Mix & Master, Beaturi și Producție Video" />
       <meta property="og:description" content="Înregistrări de calitate, mix & master profesionist și videoclipuri creative. Umami Records - locul unde sound-ul tău prinde viață!" />
       <meta property="og:image" content="/images/umami-studio.jpg" />
+    
+      
+<script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify({
+ "@context":"https://schema.org",
+ "@type":"Service",
+ "name":"Mix & Master",
+ "provider":{"@type":"LocalBusiness","name":"Umami Records"},
+ "areaServed":"Ploiești, RO",
+ "offers":{"@type":"Offer","priceCurrency":"RON","price":"200","url":"https://www.umamirecords.ro/servicii"}
+})}} />
+
+    
     </Head>
     <section className="relative min-h-screen py-16 px-6 text-white overflow-hidden">
       {/* Glitchy Animated Title */}
@@ -93,7 +105,7 @@ export default function Services() {
               </div>
             </div>
             <p className="text-gray-400 mb-4">{service.description}</p>
-            <p className="text-yellow-400 font-bold">{service.price}</p>
+            <p className="text-yellow-400 font-bold whitespace-pre-line">{service.price}</p>
             <div className="mt-6">
               <Link href={service.link} passHref>
                 <motion.button 

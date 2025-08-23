@@ -29,8 +29,7 @@ export default function Hero() {
       className="absolute top-0 left-0 w-full h-full object-cover brightness-50"
       loading="lazy"
     >
-      <source src="/videos/hero-bg-min.webm" type="video/webm" />
-      <source src="/videos/hero-bg-min.mp4" type="video/mp4" />
+      <source src="/videos/C1375.webm" type="video/webm" />
     </video>
   
     {/* Hero Content */}
@@ -56,7 +55,7 @@ export default function Hero() {
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: 'easeOut' }}
 >
-  Sunetul tău. Fără limite.
+  Ascultă savoarea.
 </motion.h2>
 
 

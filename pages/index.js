@@ -1,12 +1,15 @@
-import Hero from "@/components/Hero";
-import Testimonials from "@/components/Testimonials";
-import FeaturedArtists from "@/components/FeaturedArtists";
-import WhyChooseUs from "@/components/WhyChooseUs";
+import dynamic from "next/dynamic";
 import Head from "next/head";
+
+const Hero = dynamic(() => import("@/components/Hero"));
+const Testimonials = dynamic(() => import("@/components/Testimonials"));
+const FeaturedArtists = dynamic(() => import("@/components/FeaturedArtists"));
+const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"));
+
 
 export default function Home() {
     return (
-        <> < Head > <title>Umami Records | Studio de Înregistrări în Ploiești pentru Artiști Autentici</title>
+        <> <Head> <title>Umami Records | Studio de Înregistrări în Ploiești pentru Artiști Autentici</title>
         <meta
             name="description"
             content="Studio de înregistrări în Ploiești dedicat artiștilor care vor să-și exprime stilul unic. Înregistrări vocale, mix & master profesional și videoclipuri creative. Gustă savoarea muzicii!"/>

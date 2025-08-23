@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { FaInstagram, FaYoutube, FaEnvelope } from "react-icons/fa";
+import { FaInstagram, FaYoutube, FaEnvelope, FaSoundcloud } from "react-icons/fa";
+import { SiTiktok } from "react-icons/si";
 
 export default function Footer() {
   return (
@@ -14,49 +15,74 @@ export default function Footer() {
       </div>
 
       {/* Navigation Links */}
-<div className="flex flex-wrap justify-center items-center gap-4 text-gray-300 text-sm uppercase font-bold tracking-wide">
-  <Link href="/">
-    <span className="hover:text-yellow-400 transition-all duration-300 glitch-hover">
-      Acasă
-    </span>
-  </Link>
-  <Link href="/servicii">
-    <span className="hover:text-yellow-400 transition-all duration-300 glitch-hover">
-      Servicii
-    </span>
-  </Link>
-  <Link href="/muzica">
-    <span className="hover:text-yellow-400 transition-all duration-300 glitch-hover">
-      Muzică
-    </span>
-  </Link>
-  <Link href="/despre">
-    <span className="hover:text-yellow-400 transition-all duration-300 glitch-hover">
-      Despre
-    </span>
-  </Link>
-  <Link href="/contact">
-    <span className="hover:text-yellow-400 transition-all duration-300 glitch-hover">
-      Contact
-    </span>
-  </Link>
-</div>
-
+      <div className="flex flex-wrap justify-center items-center gap-4 text-gray-300 text-sm uppercase font-bold tracking-wide">
+        <Link href="/">
+          <span className="hover:text-yellow-400 transition-all duration-300 glitch-hover">Acasă</span>
+        </Link>
+        <Link href="/servicii">
+          <span className="hover:text-yellow-400 transition-all duration-300 glitch-hover">Servicii</span>
+        </Link>
+        <Link href="/muzica">
+          <span className="hover:text-yellow-400 transition-all duration-300 glitch-hover">Muzică</span>
+        </Link>
+        <Link href="/despre">
+          <span className="hover:text-yellow-400 transition-all duration-300 glitch-hover">Despre</span>
+        </Link>
+        <Link href="/contact">
+          <span className="hover:text-yellow-400 transition-all duration-300 glitch-hover">Contact</span>
+        </Link>
+      </div>
 
       {/* Social Media Links */}
-        <div className="flex justify-center space-x-6 text-2xl mt-6">
-          <a href="https://instagram.com/umami.records" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-[#ff0077] transition-colors duration-300">
-            <FaInstagram />
-          </a>
-          <a href="https://youtube.com/umami.records" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-[#ff0077] transition-colors duration-300">
-            <FaYoutube />
-          </a>
-          <a href="mailto:contact@umamirecords.ro" className="text-yellow-400 hover:text-[#ff0077] transition-colors duration-300">
-            <FaEnvelope />
-          </a>
-        </div>
+      <div className="flex justify-center space-x-6 text-2xl mt-6">
+        <a
+          href="https://instagram.com/umami.records"
+          target="_blank" rel="noopener noreferrer"
+          className="text-yellow-400 hover:text-[#ff0077] transition-colors duration-300"
+          aria-label="Instagram" title="Instagram"
+        >
+          <FaInstagram />
+        </a>
 
-        {/* Copyright & Legal */}
+        {/* TikTok */}
+        <a
+          href="https://www.tiktok.com/@umami.records"  // ← update if needed
+          target="_blank" rel="noopener noreferrer"
+          className="text-yellow-400 hover:text-[#ff0077] transition-colors duration-300"
+          aria-label="TikTok" title="TikTok"
+        >
+          <SiTiktok />
+        </a>
+
+        <a
+          href="https://www.youtube.com/@Umami.Records"
+          target="_blank" rel="noopener noreferrer"
+          className="text-yellow-400 hover:text-[#ff0077] transition-colors duration-300"
+          aria-label="YouTube" title="YouTube"
+        >
+          <FaYoutube />
+        </a>
+
+        {/* SoundCloud */}
+        <a
+          href="https://soundcloud.com/umami_records"   // ← update if needed
+          target="_blank" rel="noopener noreferrer"
+          className="text-yellow-400 hover:text-[#ff0077] transition-colors duration-300"
+          aria-label="SoundCloud" title="SoundCloud"
+        >
+          <FaSoundcloud />
+        </a>
+
+        <a
+          href="mailto:contact@umamirecords.ro"
+          className="text-yellow-400 hover:text-[#ff0077] transition-colors duration-300"
+          aria-label="Email" title="Email"
+        >
+          <FaEnvelope />
+        </a>
+      </div>
+
+      {/* Copyright & Legal */}
       <p className="text-gray-500 text-xs mt-6">
         © {new Date().getFullYear()} Umami Records. Toate drepturile rezervate.
       </p>
