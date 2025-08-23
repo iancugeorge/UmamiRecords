@@ -38,7 +38,7 @@ const artists = [
   {
     name: "Haiduc",
     image: "/albert.jpg",
-    genre: "Hip-Hop / Gangsta Rap",
+    genre: "Urban Alternativ Rap",
     instagram: "https://www.instagram.com/wshaiduc",
     youtube: "https://www.youtube.com/@wshaiduc",
     soundcloud: "https://soundcloud.com/albert-haidu",
