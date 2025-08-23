@@ -7,6 +7,7 @@ import StickyButton from '@/components/StickyButton';
 import '@/styles/noise.css';
 import { useRef, useEffect } from 'react';
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 import { Oswald, Montserrat } from "next/font/google";
@@ -81,6 +82,7 @@ function MyApp({ Component, pageProps, router }) {
         </AnimatePresence>
         <StickyButton />
         <Analytics />
+        <SpeedInsights />
       </Layout>
     </main>
   );
