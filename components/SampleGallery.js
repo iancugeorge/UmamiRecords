@@ -119,7 +119,7 @@ export default function SampleGallery() {
       <div className="mb-6 flex justify-center">
         <input
           type="text"
-          placeholder="Caută sample-uri..."
+          placeholder="Caută..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="px-4 py-2 rounded-full text-black focus:outline-none search-input"
