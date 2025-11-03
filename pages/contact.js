@@ -1,24 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle, Send, Loader2, CheckCircle } from "lucide-react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const isValidEmail = (email) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(email.trim());
 
 const isValidRoPhone = (phone) => {
-  const d = phone.replace(/\D/g, "");           // keep digits only
-  return /^07\d{8}$/.test(d) || /^407\d{8}$/.test(d); // 07xxxxxxxx or 407xxxxxxxx
+  const d = phone.replace(/\D/g, "");
+  return /^07\d{8}$/.test(d) || /^407\d{8}$/.test(d);
 };
 
 const normalizeRoPhoneE164 = (phone) => {
   const d = phone.replace(/\D/g, "");
-  if (/^07\d{8}$/.test(d)) return `+40${d.slice(1)}`; // 07… -> +407…
-  if (/^407\d{8}$/.test(d)) return `+${d}`;           // 407… -> +407…
-  return phone.trim();                                 // fallback (shouldn't happen if validated)
+  if (/^07\d{8}$/.test(d)) return `+40${d.slice(1)}`;
+  if (/^407\d{8}$/.test(d)) return `+${d}`;
+  return phone.trim();
 };
 
 export default function Contact() {
+  const router = useRouter();
+  
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -39,10 +42,24 @@ export default function Contact() {
     "Producție Video",
   ];
 
+  // Pre-fill form from URL query parameters
+  useEffect(() => {
+    if (router.isReady) {
+      const { service, message } = router.query;
+      
+      if (service || message) {
+        setFormData((prev) => ({
+          ...prev,
+          services: service ? [service] : prev.services,
+          message: message || prev.message,
+        }));
+      }
+    }
+  }, [router.isReady, router.query]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((p) => ({ ...p, [name]: value }));
-    // clear field-specific error as user edits
     setErrors((prev) => ({ ...prev, [name]: undefined }));
   };
 
@@ -90,7 +107,6 @@ export default function Contact() {
     setLoading(true);
     setServerMessage("");
 
-    // Normalize the phone to E.164 if present
     const payload = {
       ...formData,
       phone:

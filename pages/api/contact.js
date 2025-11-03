@@ -1,15 +1,21 @@
-import nodemailer from "nodemailer";
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
+  // Log that API was called
+  console.log('=== Contact API Called ===');
+  console.log('Resend API Key present:', !!process.env.RESEND_API_KEY);
+
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method Not Allowed" });
   }
 
-  // Destructure email along with other fields
   const { name, phone, email, contactMethod, services, message } = req.body;
 
-  // Basic validation. You might want to add: if contactMethod === "Email" and no email provided, return an error.
-  if (!name || !contactMethod || !message || services.length === 0) {
+  console.log('Form data received:', { name, contactMethod, services: services?.length });
+
+  if (!name || !contactMethod || !message || !services || services.length === 0) {
     return res.status(400).json({ message: "Toate câmpurile obligatorii trebuie completate." });
   }
   if (contactMethod === "Email" && !email) {
@@ -17,23 +23,16 @@ export default async function handler(req, res) {
   }
 
   try {
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      secure: true,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
     const serviceText = services.join(", ");
-    const phoneText = phone ? `<p><strong>Telefon:</strong> ${phone}</p>` : "<p><strong>Telefon:</strong> Nu a fost furnizat.</p>";
+    const phoneText = phone ? `<p><strong>Telefon:</strong> ${phone}</p>` : "";
     const emailText = email ? `<p><strong>Email:</strong> ${email}</p>` : "";
 
-    const mailOptions = {
-      from: `CERERE SERVICII - ${name} <${process.env.EMAIL_USER}>`,
-      to: "contact@umamirecords.ro",
+    console.log('Attempting to send email via Resend...');
+
+    const data = await resend.emails.send({
+      from: 'Umami Records <contact@umamirecords.ro>',
+      to: 'contact@umamirecords.ro',
+      replyTo: email || undefined,
       subject: `CERERE SERVICII DE LA ${name}`,
       html: `<h3>CERERE SERVICII</h3>
              <p><strong>Nume:</strong> ${name}</p>
@@ -42,13 +41,25 @@ export default async function handler(req, res) {
              ${emailText}
              <p><strong>Servicii dorite:</strong> ${serviceText}</p>
              <p><strong>Mesaj:</strong> ${message}</p>`,
-    };
+    });
 
-    await transporter.sendMail(mailOptions);
+    console.log('✅ Resend response:', data);
 
-    return res.status(200).json({ message: "Mesaj trimis cu succes! 🚀" });
+    return res.status(200).json({ 
+      message: "Mesaj trimis cu succes! 🚀",
+      emailId: data.id // This will help you track in Resend
+    });
   } catch (error) {
-    console.error("Error sending email:", error);
-    return res.status(500).json({ message: "Eroare la trimiterea emailului." });
+    console.error("❌ Error sending email:", error);
+    console.error("Error details:", {
+      message: error.message,
+      name: error.name,
+      statusCode: error.statusCode
+    });
+    
+    return res.status(500).json({ 
+      message: "Eroare la trimiterea emailului.",
+      details: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
   }
 }
