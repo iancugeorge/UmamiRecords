@@ -38,7 +38,7 @@ export default function Contact() {
   const servicesList = [
     "Înregistrare",
     "Mix & Master",
-    "Beaturi (Exclusive & Custom)",
+    "Beat / Instrumental",
     "Producție Video",
   ];
 

@@ -8,6 +8,11 @@ import { ShoppingCart, User, Tag } from "lucide-react";
 
 const sampleData = {
   "Mix & Master": [
+    { id: 12, title: "Simake - Faima", rawSrc: "/audio/Site - Simake - Faima - REC.mp3", masteredSrc: "/audio/Site - Simake - Faima - MASTER.mp3" },
+    { id: 11, title: "Matashu - Fara Nume", rawSrc: "/audio/Site - Matashu - Fara Nume - REC.mp3", masteredSrc: "/audio/Site - Matashu - Fara Nume - MASTER.mp3" },
+    { id: 10, title: "Matashu - Fara Nume 2", rawSrc: "/audio/Site - Matashu - Fara Nume 2 - REC.mp3", masteredSrc: "/audio/Site - Matashu - Fara Nume 2 - MASTER.mp3" },
+    { id: 9, title: "Arabu - Foc nu fum", rawSrc: "/audio/Site - Arabu - Foc nu fum - REC.mp3", masteredSrc: "/audio/Site - Arabu - Foc nu fum - MASTER.mp3" },
+    { id: 8, title: "Cretzu - De Halloween", rawSrc: "/audio/Site - Cretzu - De Halloween - REC.mp3", masteredSrc: "/audio/Site - Cretzu - De Halloween - MASTER.mp3" },
     { id: 7, title: "Edo - Jurat", rawSrc: "/audio/Site - Edo - Jurat - REC.mp3", masteredSrc: "/audio/Site - Edo - Jurat - MASTER.mp3" },
     { id: 6, title: "Simake - Poate intr-o zi", rawSrc: "/audio/Site - Simake - Poate intr-o zi - REC.mp3", masteredSrc: "/audio/Site - Simake - Poate intr-o zi - MASTER.mp3" },
     { id: 5, title: "Edo - Persoana", rawSrc: "/audio/Site - Edo - Persoana - REC.mp3", masteredSrc: "/audio/Site - Edo - Persoana - MASTER.mp3" }, 
@@ -17,25 +22,37 @@ const sampleData = {
     { id: 1, title: "Simake - Banii", rawSrc: "/audio/Site - Simake - Banii - REC.mp3", masteredSrc: "/audio/Site - Simake - Banii - MASTER.mp3" },
   ],
   Beaturi: [
-     { id: 1, title: "beat boom bap prod 808.gabiiii x ivan", src: "/audio/Beaturi/Gabi/beat boom bap prod 808.gabiiii x ivan.mp3", price: 125, producer: "808.gabiiii x ivan", tags: ["Boom Bap", "Old School", "Em", "94 BPM"] },
-    { id: 2, title: "beat narr 117 E bpm 808.gabiiii x dennis", src: "/audio/Beaturi/Gabi/beat narr 117 Em prod 808.gabiii x dennis.mp3", price: 125, producer: "808.gabiiii x dennis", tags: ["Narr", "Em", "117 BPM"] },
-    { id: 3, title: "floyyonner beat 94 bpm", src: "/audio/Beaturi/Gabi/floyymenor beat 94 bpm.mp3", price: 125, producer: "808.gabiiii", tags: ["Floyymenor Type", "C#m", "94 BPM"] },
-    { id: 4, title: "floyyonner type beat 100 bpm", src: "/audio/Beaturi/Gabi/floyymenor type beat 100 bpm.mp3", price: 125, producer: "808.gabiiii", tags: ["Floyymenor Type", "Fm", "100 BPM"] },
-    { id: 5, title: "glo beat cu kainted 139 bpm Eb m", src: "/audio/Beaturi/Gabi/glo beat cu kainted 139 bpm Eb m.mp3", price: 125, producer: "808.gabiiii x kainted", tags: ["Glo", "Eb Major", "139 BPM"] },
-    { id: 6, title: "guitar beat 165 bpm D#m", src: "/audio/Beaturi/Gabi/guitar beat 165 bpm Dshm.mp3", price: 125, producer: "808.gabiiii", tags: ["Guitar", "G#m", "82 BPM"] },
-    { id: 7, title: "r&b 85 bpm D#m", src: "/audio/Beaturi/Gabi/rnb 85 bpm Dshm.mp3", price: 125, producer: "808.gabiiii", tags: ["R&B", "D#m", "85 BPM"] },
-    { id: 8, title: "raul ws type beat 145 bpm Cm", src: "/audio/Beaturi/Gabi/raul ws type beat 145 bpm Cm.mp3", price: 125, producer: "808.gabiiii", tags: ["Raul WS Type", "Cm", "146 BPM"] },
-    { id: 9, title: "rava type beat 115 bpm C#m", src: "/audio/Beaturi/Gabi/rava type beat 115 bpm Cshm.mp3", price: 125, producer: "808.gabiiii", tags: ["Rava Type", "C#", "115 BPM"] },
-    { id: 10, title: "rio da yung 101 bpm Cm", src: "/audio/Beaturi/Gabi/rio da yung 101 bpm Cm.mp3", price: 125, producer: "808.gabiiii", tags: ["Rio Da Yung", "Cm", "101 BPM"] },
-    { id: 11, title: "sarba type beat hard 149 bpm Dm", src: "/audio/Beaturi/Gabi/sarba type beat hard 149 bpm Dm.mp3", price: 125, producer: "808.gabiiii", tags: ["Sarba", "Hard", "Dm", "74 BPM"] },
-    { id: 12, title: "talent 2 10 F#m", src: "/audio/Beaturi/Gabi/talent 2 10 Fshm.mp3", price: 125, producer: "808.gabiiii", tags: ["Talent", "Bm", "90 BPM"] },
-    { id: 13, title: "vizccol 99 bpm Dm", src: "/audio/Beaturi/Gabi/vizzcol 99 bpm Dm.mp3", price: 125, producer: "808.gabiiii", tags: ["Vizzcol Type", "Dm", "99 BPM"] },
-    { id: 14, title: "wts pe patru roti 102 bpm Dm", src: "/audio/Beaturi/Gabi/wts pe patru roti 102 bpm Dm.mp3", price: 125, producer: "808.gabiiii", tags: ["WTS", "Dm", "102 BPM"] },
-    { id: 15, title: "TrapFlex 140 BPM Em", src: "/audio/Beaturi/Alex/Beat - TrapFlex - 140bpm - Em - ProdAllx.mp3", price: 125, producer: "allx", tags: ["Trap", "Em", "140 BPM"] },
-    { id: 16, title: "BellTrip 140 BPM C", src: "/audio/Beaturi/Alex/Beat - BellTrip - 140BM - C - Prod.allx.mp3", price: 125, producer: "allx", tags: ["Bell", "Trip", "C", "140 BPM"] }
+  { "id": 1, "title": "type Aerozen 99 bpm Dm", "src": "/audio/Beaturi/Gabi/type Aerozen 99 bpm Dm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Aerozen Type", "Dm", "99 BPM", "198 BPM"] },
+  { "id": 2, "title": "type Aerozen 139 bpm Ebm", "src": "/audio/Beaturi/Gabi/type Aerozen 139 bpm Ebm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Aerozen Type", "Ebm", "139 BPM", "69.5 BPM"] },
+  { "id": 3, "title": "type Aerozen 148 bpm Gm", "src": "/audio/Beaturi/Gabi/type Aerozen 148 bpm Gm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Aerozen Type", "Gm", "148 BPM", "74 BPM"] },
+  { "id": 4, "title": "type arabic 100 bpm Cm", "src": "/audio/Beaturi/Gabi/type arabic 100 bpm Cm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Arabic Type", "Cm", "100 BPM", "200 BPM"] },
+  { "id": 5, "title": "type arabic 128 bpm C", "src": "/audio/Beaturi/Gabi/type arabic 128 bpm C.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Arabic Type","C", "128 BPM", "64 BPM"] },
+  { "id": 6, "title": "type Azteca 149 bpm Dm", "src": "/audio/Beaturi/Gabi/type Azteca 149 bpm Dm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Azteca Type", "Dm", "149 BPM", "74.5 BPM"] },
+  { "id": 7, "title": "type Floyy Menor 94 bpm C#m", "src": "/audio/Beaturi/Gabi/type Floyy Menor 94 bpm Cshm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Floyy Menor Type", "C#m", "94 BPM", "188 BPM"] },
+  { "id": 8, "title": "type Floyy Menor 100 bpm Fm", "src": "/audio/Beaturi/Gabi/type Floyy Menor 100 bpm Fm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Floyy Menor Type", "Fm", "100 BPM", "200 BPM"] },
+  { "id": 9, "title": "type guitar 165 bpm D#m", "src": "/audio/Beaturi/Gabi/type guitar 165 bpm Dshm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Guitar Type", "D#m", "165 BPM", "82.5 BPM"] },
+  { "id": 10, "title": "type Ian 130 bpm Gm", "src": "/audio/Beaturi/Gabi/type Ian 130 bpm Gm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Ian Type", "Gm", "130 BPM", "65 BPM"] },
+  { "id": 11, "title": "type Ian 143 bpm Em", "src": "/audio/Beaturi/Gabi/type Ian 143 bpm Em.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Ian Type", "Em", "143 BPM", "71.5 BPM"] },
+  { "id": 12, "title": "type MGL 94 bpm Em", "src": "/audio/Beaturi/Gabi/type MGL 94 Em.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["MGL Type", "Em", "94 BPM", "188 BPM"] },
+  { "id": 13, "title": "type narr 117 bpm Em", "src": "/audio/Beaturi/Gabi/type narr 117 Em.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Narr Type", "Em", "117 BPM", "58.5 BPM"] },
+  { "id": 14, "title": "type Raul ws 145 bpm Cm", "src": "/audio/Beaturi/Gabi/type Raul ws 145 bpm Cm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Raul WS Type", "Cm", "145 BPM", "72.5 BPM"] },
+  { "id": 15, "title": "type Rava 115 bpm C#m", "src": "/audio/Beaturi/Gabi/type Rava 115 bpm Cshm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Rava Type", "C#m", "115 BPM", "57.5 BPM"] },
+  { "id": 16, "title": "type Rio da Yung 101 bpm Cm", "src": "/audio/Beaturi/Gabi/type Rio da Yung 101 bpm Cm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Rio Da Yung Type", "Cm", "101 BPM", "202 BPM"] },
+  { "id": 17, "title": "type summer 100 bpm Am", "src": "/audio/Beaturi/Gabi/type summer 100 bpm Am.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Summer Type", "Am", "100 BPM", "200 BPM"] },
+  { "id": 18, "title": "type supertrap hard 162 bpm Cm", "src": "/audio/Beaturi/Gabi/type supertrap hard 162 Cm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Supertrap Type", "Cm", "162 BPM", "81 BPM", "Hard"] },
+  { "id": 19, "title": "type Talent 90 bpm F#m", "src": "/audio/Beaturi/Gabi/type Talent 90 bpm Fshm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Talent Type", "F#m", "90 BPM", "180 BPM"] },
+  { "id": 20, "title": "type The Weekend 79 bpm Bm", "src": "/audio/Beaturi/Gabi/type The Weekend 79 bpm Bm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["The Weeknd Type", "Bm", "79 BPM", "158 BPM"] },
+  { "id": 21, "title": "type Vanilla 85 bpm D#m", "src": "/audio/Beaturi/Gabi/type Vanilla 85 bpm Dshm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Vanilla Type", "D#m", "85 BPM", "170 BPM"] },
+  { "id": 22, "title": "type vara 100 bpm Em", "src": "/audio/Beaturi/Gabi/type vara 100 bpm Em.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["Vara Type", "Em", "100 BPM", "200 BPM"] },
+  { "id": 23, "title": "type wst 102 bpm Dm", "src": "/audio/Beaturi/Gabi/type wst 102 bpm Dm.mp3", "price": 125, "producer": "808.gabiiii", "tags": ["WST Type", "Dm", "102 BPM", "204 BPM"] }
+
+    // { id: 24, title: "TrapFlex 140 BPM Em", src: "/audio/Beaturi/Alex/Beat - TrapFlex - 140bpm - Em - ProdAllx.mp3", price: 125, producer: "allx", tags: ["Trap", "Em", "140 BPM"] },
+    // { id: 25, title: "BellTrip 140 BPM C", src: "/audio/Beaturi/Alex/Beat - BellTrip - 140BM - C - Prod.allx.mp3", price: 125, producer: "allx", tags: ["Bell", "Trip", "C", "140 BPM"] }
   ],
 
   Muzica: [
+    { id: 12, title: "Cretzu - De Halloween", src: "https://www.youtube.com/watch?v=SN5wtE_MhLk" , thumbnail: "https://img.youtube.com/vi/SN5wtE_MhLk/maxresdefault.jpg"},
+    { id: 11, title: "Simake - Faima", src: "https://www.youtube.com/watch?v=dbS_np_CaeA" , thumbnail: "https://img.youtube.com/vi/dbS_np_CaeA/maxresdefault.jpg"},
     { id: 10, title: "Edo - Decibelii", src: "https://www.youtube.com/watch?v=nsL1fdZHvQ0", thumbnail: "https://img.youtube.com/vi/nsL1fdZHvQ0/maxresdefault.jpg" },
     { id: 9, title: "Haiduc x Iox - The Path", src: "https://www.youtube.com/watch?v=wlbOVzmOKAs", thumbnail: "https://img.youtube.com/vi/wlbOVzmOKAs/maxresdefault.jpg" },
     { id: 8, title: "Edo - Jurat", src: "https://www.youtube.com/watch?v=53fZNKM72o0", thumbnail: "https://img.youtube.com/vi/53fZNKM72o0/maxresdefault.jpg" },
@@ -67,11 +84,11 @@ export default function SampleGallery() {
   const itemsPerPage = 6;
 
   const handleBuyBeat = (beatTitle) => {
-    const message = `Bună! Sunt interessat de beat-ul: "${beatTitle}"`;
+    const message = `Salutare! Doresc beat-ul: "${beatTitle}"`;
     router.push({
       pathname: '/contact',
       query: {
-        service: 'Beaturi (Exclusive & Custom)',
+        service: 'Beat / Instrumental',
         message: message
       }
     });

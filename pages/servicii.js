@@ -26,7 +26,7 @@ const services = [
     title: "Beaturi Exclusive", 
     subtitle: "Alege vibe-ul tău sau creează unul unic.",
     description: "Îți oferim beaturi gata făcute sau compuse de la zero, adaptate stilului tău. Indiferent dacă ai nevoie de un instrumental trap, drill, r&b sau ceva experimental, găsim sau creăm sound-ul perfect pentru tine.",
-    price: "50 RON / beat (existent)\n150+ RON / custom",
+    price: "125 RON / beat (existent)\n150+ RON / custom",
     icon: Music, 
     cta: "Ascultă beaturile", 
     link: "/muzica?tab=Beaturi"  // ✅ Directs to "Beaturi"
