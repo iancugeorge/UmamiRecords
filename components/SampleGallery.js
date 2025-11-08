@@ -12,7 +12,7 @@ const sampleData = {
     { id: 11, title: "Matashu - Fara Nume", rawSrc: "/audio/Site - Matashu - Fara Nume - REC.mp3", masteredSrc: "/audio/Site - Matashu - Fara Nume - MASTER.mp3" },
     { id: 10, title: "Matashu - Fara Nume 2", rawSrc: "/audio/Site - Matashu - Fara Nume 2 - REC.mp3", masteredSrc: "/audio/Site - Matashu - Fara Nume 2 - MASTER.mp3" },
     { id: 9, title: "Arabu - Foc nu fum", rawSrc: "/audio/Site - Arabu - Foc nu fum - REC.mp3", masteredSrc: "/audio/Site - Arabu - Foc nu fum - MASTER.mp3" },
-    { id: 8, title: "Cretzu - De Halloween", rawSrc: "/audio/Site - Cretzu - De Halloween - REC.mp3", masteredSrc: "/audio/Site - Cretzu - De Halloween - MASTER.mp3" },
+    // { id: 8, title: "Cretzu - De Halloween", rawSrc: "/audio/Site - Cretzu - De Halloween - REC.mp3", masteredSrc: "/audio/Site - Cretzu - De Halloween - MASTER.mp3" },
     { id: 7, title: "Edo - Jurat", rawSrc: "/audio/Site - Edo - Jurat - REC.mp3", masteredSrc: "/audio/Site - Edo - Jurat - MASTER.mp3" },
     { id: 6, title: "Simake - Poate intr-o zi", rawSrc: "/audio/Site - Simake - Poate intr-o zi - REC.mp3", masteredSrc: "/audio/Site - Simake - Poate intr-o zi - MASTER.mp3" },
     { id: 5, title: "Edo - Persoana", rawSrc: "/audio/Site - Edo - Persoana - REC.mp3", masteredSrc: "/audio/Site - Edo - Persoana - MASTER.mp3" }, 
